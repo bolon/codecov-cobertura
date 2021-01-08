@@ -13,7 +13,7 @@ before_install:
   
 script:
   - go test -race -coverprofile=coverage.txt -covermode=atomic
-  - find ./* -name "profile.cov" -type f -exec sh -c 'gocov convert {} | gocov-xml > {}.xml' \;
+  - find ./* -name "coverage.txt" -type f -exec sh -c 'gocov convert {} | gocov-xml > {}.xml' \;
   
 after_success:
   - bash <(curl -s https://codecov.io/bash) -f "*.cov.xml"
