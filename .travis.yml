@@ -5,7 +5,6 @@ go:
   - 1.13.x
   
 before_install:
-before_install:
   - go get -t -v ./...
   - go get github.com/axw/gocov/gocov
   - go get github.com/AlekSi/gocov-xml
@@ -16,4 +15,5 @@ script:
   - find ./* -name "coverage.txt" -type f -exec sh -c 'gocov convert {} | gocov-xml > {}.xml' \;
   
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -f "*.cov.xml"
+  - ls
+  - bash <(curl -s https://codecov.io/bash) -f "*.txt.xml"
